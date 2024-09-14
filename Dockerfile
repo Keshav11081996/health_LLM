@@ -9,7 +9,7 @@ COPY . /app_api
 RUN pip install --no-cache-dir --upgrade pip \
     && pip install --no-cache-dir -r requirements.txt
 
-ENV HF_TOKEN=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
+ENV HF_TOKEN=<HF_TOKEN>
 EXPOSE 8000
 
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload", "--log-level", "debug"]
