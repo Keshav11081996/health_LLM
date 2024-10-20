@@ -54,8 +54,10 @@ async def analyze_goal_and_suggest_next(last_goal_content: str, completion_rate:
     generated_ids = model.generate(model_inputs, max_new_tokens=300, do_sample=True)
     decoded = tokenizer.batch_decode(generated_ids)
     response_text = decoded[0]
-    
+    print(response_text, '\n\n')
     result = await extract_between_markers(response_text)
+    print(result+'}')
+    
     # try:
     data_dict = json.loads(result+'}')
     print(data_dict)
